@@ -1,75 +1,75 @@
-importação 'dardo: async';
+import 'dart:async';
 
-importação 'pacote:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 void main() => runApp(const Aplicacao());
 
-classe Aplicacão estende StatelessWidget {
-  const Aplicacao({super. .key});
+class Aplicacao extends StatelessWidget {
+  const Aplicacao({super.key});
 
   @override
- Construção de widget (contexto BuildContext) {
-    retorno const MaterialApp(casa: HomePage());
+  Widget build(BuildContext context) {
+    return const MaterialApp(home: HomePage());
   }
 }
 
-classe Página inicial estende Peça de larva sem estado {
-  const Página inicial({super. .key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
- Construção de widget (contexto BuildContext) {
+  Widget build(BuildContext context) {
     final num1Controler = TextEditingController();
     final num2Controler = TextEditingController();
 
- retorno Andaime (
- appBar: AppBar(
- título: const Texto("Pergunta e Resposta"),
- fundoCor: Tema.de(contexto).colorScheme.inversePrimary,
- ),
- corpo: Centro(
- criança: Coluna(
- alinhamento fazer eixo principal: MainAxisAlignment.spaceEvenly,
- crianças: [
- Texto(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Pergunta e Resposta"),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
               "Soma",
- estilo: Tema.de(contexto).textTheme.headlineLarge,
- ),
- Caixa dimensionada(a)
- larga: 250,
- criança: TextField (Campo de Texto)
- controlador: num1Controler,
- decoração: const Decoração de entrada (
- etiquetaTexto: "número 1 ",
- ),
- ),
- ),
- Destinatário (
- criança: const Texto("+"),
- ),
- Caixa dimensionada(a)
- larga: 250,
- criança: TextField (Campo de Texto)
- controlador: num2Controler,
- decoração: const Decoração de entrada (
- etiquetaTexto: "número 2",
- ),
- ),
- ),
- Caixa dimensionada(a)
- larga: 250,
- criança: ElevatedButton (Botão Elevado)
- onPressionado: () =>
- somar (contexto, num1Controler.text, num2Controler.text),
- criança: const Texto("OK"),
- ),
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
+            SizedBox(
+              width: 250,
+              child: TextField(
+                controller: num1Controler,
+                decoration: const InputDecoration(
+                  labelText: "número 1 ",
+                ),
+              ),
+            ),
+            Container(
+              child: const Text("+"),
+            ),
+            SizedBox(
+              width: 250,
+              child: TextField(
+                controller: num2Controler,
+                decoration: const InputDecoration(
+                  labelText: "número 2",
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 250,
+              child: ElevatedButton(
+                onPressed: () =>
+                    somar(context, num1Controler.text, num2Controler.text),
+                child: const Text("OK"),
+              ),
             )
- ],
- ),
- ),
- );
+          ],
+        ),
+      ),
+    );
   }
 
- void somar (contexto BuildContext, String valor1, valor2) {
+  void somar(BuildContext context, String valor1, valor2) {
     // pega daqui o que o usuario digitou no textfield
     final num1 = int.parse(valor1);
     final num2 = int.parse(valor2);
@@ -78,11 +78,11 @@ classe Página inicial estende Peça de larva sem estado {
 
     final mensagem = "Resultado: $total";
 
- AndaimeMensageiro.de(contexto).showSnackBar(
-      // respondor o ususário
- Lanchonete(
- conteúdo: Texto(mensagem),
- ),
- );
+    ScaffoldMessenger.of(context).showSnackBar(
+      // respondendo o ususario
+      SnackBar(
+        content: Text(mensagem),
+      ),
+    );
   }
 }
