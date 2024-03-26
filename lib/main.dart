@@ -1,78 +1,88 @@
-import 'package:flutter/material.dart';
+importação 'dardo: async';
+
+importação 'pacote:flutter/material.dart';
 
 void main() => runApp(const Aplicacao());
 
-class Aplicacao extends StatelessWidget {
-  const Aplicacao({super.key});
+classe Aplicacão estende StatelessWidget {
+  const Aplicacao({super. .key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
-    );
+ Construção de widget (contexto BuildContext) {
+    retorno const MaterialApp(casa: HomePage());
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+classe Página inicial estende Peça de larva sem estado {
+  const Página inicial({super. .key});
 
   @override
-  Widget build(BuildContext context) {
-    final controller = TextEditingController();
+ Construção de widget (contexto BuildContext) {
+    final num1Controler = TextEditingController();
+    final num2Controler = TextEditingController();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
+ retorno Andaime (
+ appBar: AppBar(
+ título: const Texto("Pergunta e Resposta"),
+ fundoCor: Tema.de(contexto).colorScheme.inversePrimary,
+ ),
+ corpo: Centro(
+ criança: Coluna(
+ alinhamento fazer eixo principal: MainAxisAlignment.spaceEvenly,
+ crianças: [
+ Texto(
               "Soma",
-              style: Theme.of(context).textTheme.headlineLarge,
-            ),
-            SizedBox(
-              width: 250,
-              child: TextField(
-                controller: controller,
-                decoration: const InputDecoration(
-                  labelText: "N 1",
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 250,
-              child: TextField(
-                controller: controller,
-                decoration: const InputDecoration(
-                  labelText: "N 2",
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 250,
-              child: ElevatedButton(
-                  onPressed: () => cumprimenta(context, controller),
-                  child: const Text("Resultado: ")),
-            ),
-          ],
-        ),
-      ),
-    );
+ estilo: Tema.de(contexto).textTheme.headlineLarge,
+ ),
+ Caixa dimensionada(a)
+ larga: 250,
+ criança: TextField (Campo de Texto)
+ controlador: num1Controler,
+ decoração: const Decoração de entrada (
+ etiquetaTexto: "número 1 ",
+ ),
+ ),
+ ),
+ Destinatário (
+ criança: const Texto("+"),
+ ),
+ Caixa dimensionada(a)
+ larga: 250,
+ criança: TextField (Campo de Texto)
+ controlador: num2Controler,
+ decoração: const Decoração de entrada (
+ etiquetaTexto: "número 2",
+ ),
+ ),
+ ),
+ Caixa dimensionada(a)
+ larga: 250,
+ criança: ElevatedButton (Botão Elevado)
+ onPressionado: () =>
+ somar (contexto, num1Controler.text, num2Controler.text),
+ criança: const Texto("OK"),
+ ),
+            )
+ ],
+ ),
+ ),
+ );
   }
 
-//Vê no chatgpt esse código abaixo
-  void cumprimenta(BuildContext context, TextEditingController controller) {
-    final num1 = int.parse(controller.text);
-    final num2 = int.parse(controller.text);
-    final resultado = num1 + num2;
+ void somar (contexto BuildContext, String valor1, valor2) {
+    // pega daqui o que o usuario digitou no textfield
+    final num1 = int.parse(valor1);
+    final num2 = int.parse(valor2);
 
-    final messagem = "Resultado: $resultado!";
+    final total = num1 + num2;
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(messagem)),
-    );
+    final mensagem = "Resultado: $total";
+
+ AndaimeMensageiro.de(contexto).showSnackBar(
+      // respondor o ususário
+ Lanchonete(
+ conteúdo: Texto(mensagem),
+ ),
+ );
   }
 }
